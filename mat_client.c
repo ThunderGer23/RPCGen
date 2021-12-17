@@ -8,9 +8,9 @@
 
 
 void
-mat_prog_1(char *host){
+mat_prog_1(char *host)
+{
 	CLIENT *clnt;
-	float  *result_1;			
 	rX  *result_3;
 	r_times_X  product_1_arg;
 
@@ -27,24 +27,35 @@ mat_prog_1(char *host){
 	int n;
 	float r;
 
-	do{
-		printf("1. r*X[]\n");
-		printf("2. Quit\n");
+	do
+	{
+		printf("==========================\n");
+		printf("=====Dummy Operations=====\n");
+		printf("==========================\n");
+		printf("1. average of X[]\n");
+		printf("2. max and min of X[]\n");
+		printf("3. r*X[]\n");
+		printf("4. Quit\n");
 		printf("==========================\n");
 		printf("Choice: ");
 		scanf("%d", &choice);
 		printf("==========================\n");
 		
-		if(choice==1){
+		if(choice==3){
+			///////////////////////////////////////////////////////
+			//r*X[]
+			///////////////////////////////////////////////////////
 			printf("Give size of X[]: ");
 			scanf("%d", &n);
 		
 			printf("\n");
 			
-			product_1_arg.X_size=n;			
+			product_1_arg.X.X_len=n;
+			product_1_arg.X_size=n;
 			product_1_arg.X.X_val=(int *) malloc(n*sizeof(int));
 			
-			for(int i=0;i<n;i++){
+			for(int i=0;i<n;i++)
+			{
 				printf("X[%d] = ", i);
 				scanf("%d", &product_1_arg.X.X_val[i]);	
 			}
@@ -58,10 +69,12 @@ mat_prog_1(char *host){
 			
 			result_3 = product_1(&product_1_arg, clnt);
 			
-			if (result_3 == (rX *) NULL) {
+			if (result_3 == (rX *) NULL) 
+			{
 				clnt_perror (clnt, "call failed");
 			}
-			else{
+			else
+			{
 				printf("\n");
 				for(int i=0;i<n;i++)
 					printf("r*X[%d] == %.2f\n", i, result_3->prod.prod_val[i]);
@@ -70,10 +83,12 @@ mat_prog_1(char *host){
 			///////////////////////////////////////////////////////
 			///////////////////////////////////////////////////////
 		}
-		else if(choice==2){
+		else if(choice==4)
+		{
 			flag=0;
 		}
-		else{
+		else
+		{
 			printf("Invalid Choice. Try Again.\n\n");
 		}
 	}while(flag);	

@@ -32,7 +32,7 @@ struct rX {
 };
 typedef struct rX rX;
 
-#define MAT_PROG 0x23450001
+#define MAT_PROG 0x23350001
 #define MAT_VERS 1
 
 #if defined(__STDC__) || defined(__cplusplus)

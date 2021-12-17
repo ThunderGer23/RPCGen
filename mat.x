@@ -16,4 +16,4 @@ program MAT_PROG
 	{		
 		rX product(r_times_X) = 3;
 	} = 1;
-} = 0x23450001;
+} = 0x23350001;
