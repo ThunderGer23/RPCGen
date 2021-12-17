@@ -30,12 +30,10 @@ mat_prog_1(char *host)
 	do
 	{
 		printf("==========================\n");
-		printf("=====Dummy Operations=====\n");
+		printf("=====Vector * Escalar=====\n");
 		printf("==========================\n");
-		printf("1. average of X[]\n");
-		printf("2. max and min of X[]\n");
-		printf("3. r*X[]\n");
-		printf("4. Quit\n");
+		printf("1. r*X[]\n");
+		printf("2. Quit\n");
 		printf("==========================\n");
 		printf("Choice: ");
 		scanf("%d", &choice);
