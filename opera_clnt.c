@@ -4,20 +4,20 @@
  */
 
 #include <memory.h> /* for memset */
-#include "mat.h"
+#include "opera.h"
 
 /* Default timeout can be changed using clnt_control() */
 static struct timeval TIMEOUT = { 25, 0 };
 
-rX *
-product_1(r_times_X *argp, CLIENT *clnt)
+EsMat *
+product_1(r_times_Mat *argp, CLIENT *clnt)
 {
-	static rX clnt_res;
+	static EsMat clnt_res;
 
 	memset((char *)&clnt_res, 0, sizeof(clnt_res));
 	if (clnt_call (clnt, product,
-		(xdrproc_t) xdr_r_times_X, (caddr_t) argp,
-		(xdrproc_t) xdr_rX, (caddr_t) &clnt_res,
+		(xdrproc_t) xdr_r_times_Mat, (caddr_t) argp,
+		(xdrproc_t) xdr_EsMat, (caddr_t) &clnt_res,
 		TIMEOUT) != RPC_SUCCESS) {
 		return (NULL);
 	}

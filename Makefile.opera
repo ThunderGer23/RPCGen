@@ -3,18 +3,18 @@
 
 # Parameters
 
-CLIENT = mat_client
-SERVER = mat_server
+CLIENT = opera_client
+SERVER = opera_server
 
 SOURCES_CLNT.c = 
 SOURCES_CLNT.h = 
 SOURCES_SVC.c = 
 SOURCES_SVC.h = 
-SOURCES.x = mat.x
+SOURCES.x = opera.x
 
-TARGETS_SVC.c = mat_svc.c mat_server.c mat_xdr.c 
-TARGETS_CLNT.c = mat_clnt.c mat_client.c mat_xdr.c 
-TARGETS = mat.h mat_xdr.c mat_clnt.c mat_svc.c mat_client.c mat_server.c
+TARGETS_SVC.c = opera_svc.c opera_server.c opera_xdr.c 
+TARGETS_CLNT.c = opera_clnt.c opera_client.c opera_xdr.c 
+TARGETS = opera.h opera_xdr.c opera_clnt.c opera_svc.c opera_client.c opera_server.c
 
 OBJECTS_CLNT = $(SOURCES_CLNT.c:%.c=%.o) $(TARGETS_CLNT.c:%.c=%.o)
 OBJECTS_SVC = $(SOURCES_SVC.c:%.c=%.o) $(TARGETS_SVC.c:%.c=%.o)

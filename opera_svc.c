@@ -3,7 +3,7 @@
  * It was generated using rpcgen.
  */
 
-#include "mat.h"
+#include "opera.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <rpc/pmap_clnt.h>
@@ -17,10 +17,10 @@
 #endif
 
 static void
-mat_prog_1(struct svc_req *rqstp, register SVCXPRT *transp)
+ope_prog_1(struct svc_req *rqstp, register SVCXPRT *transp)
 {
 	union {
-		r_times_X product_1_arg;
+		r_times_Mat product_1_arg;
 	} argument;
 	char *result;
 	xdrproc_t _xdr_argument, _xdr_result;
@@ -32,8 +32,8 @@ mat_prog_1(struct svc_req *rqstp, register SVCXPRT *transp)
 		return;
 
 	case product:
-		_xdr_argument = (xdrproc_t) xdr_r_times_X;
-		_xdr_result = (xdrproc_t) xdr_rX;
+		_xdr_argument = (xdrproc_t) xdr_r_times_Mat;
+		_xdr_result = (xdrproc_t) xdr_EsMat;
 		local = (char *(*)(char *, struct svc_req *)) product_1_svc;
 		break;
 
@@ -62,15 +62,15 @@ main (int argc, char **argv)
 {
 	register SVCXPRT *transp;
 
-	pmap_unset (MAT_PROG, MAT_VERS);
+	pmap_unset (OPE_PROG, OPE_VERS);
 
 	transp = svcudp_create(RPC_ANYSOCK);
 	if (transp == NULL) {
 		fprintf (stderr, "%s", "cannot create udp service.");
 		exit(1);
 	}
-	if (!svc_register(transp, MAT_PROG, MAT_VERS, mat_prog_1, IPPROTO_UDP)) {
-		fprintf (stderr, "%s", "unable to register (MAT_PROG, MAT_VERS, udp).");
+	if (!svc_register(transp, OPE_PROG, OPE_VERS, ope_prog_1, IPPROTO_UDP)) {
+		fprintf (stderr, "%s", "unable to register (OPE_PROG, OPE_VERS, udp).");
 		exit(1);
 	}
 
@@ -79,8 +79,8 @@ main (int argc, char **argv)
 		fprintf (stderr, "%s", "cannot create tcp service.");
 		exit(1);
 	}
-	if (!svc_register(transp, MAT_PROG, MAT_VERS, mat_prog_1, IPPROTO_TCP)) {
-		fprintf (stderr, "%s", "unable to register (MAT_PROG, MAT_VERS, tcp).");
+	if (!svc_register(transp, OPE_PROG, OPE_VERS, ope_prog_1, IPPROTO_TCP)) {
+		fprintf (stderr, "%s", "unable to register (OPE_PROG, OPE_VERS, tcp).");
 		exit(1);
 	}
 
