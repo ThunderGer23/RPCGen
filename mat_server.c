@@ -11,9 +11,15 @@ product_1_svc(r_times_X *argp, struct svc_req *rqstp)
 {
 	static rX  result;
 
-	/*
-	 * insert server code here
-	 */
+	printf("r*X[] function called...\n");
+
+	result.prod.prod_len=argp->X_size;
+	result.prod.prod_val=(float *)malloc(argp->X_size*sizeof(float));
+	
+	int i;
+	
+	for(i=0;i<argp->X_size;i++)
+		result.prod.prod_val[i]=argp->r*argp->X.X_val[i];
 
 	return &result;
 }
