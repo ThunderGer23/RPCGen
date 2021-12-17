@@ -10,9 +10,9 @@ struct rX
 	float prod <100>;
 };
 
-program DUM_PROG
+program MAT_PROG
 {
-	version DUM_VERS
+	version MAT_VERS
 	{		
 		rX product(r_times_X) = 3;
 	} = 1;
