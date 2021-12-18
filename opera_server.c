@@ -11,9 +11,15 @@ product_1_svc(r_times_Mat *argp, struct svc_req *rqstp)
 {
 	static EsMat  result;
 
-	/*
-	 * insert server code here
-	 */
+	printf("r*X[] function called...\n");
+
+	result.prod.prod_len=argp->Mat_size;
+	result.prod.prod_val=(float *)malloc(argp->Mat_size*sizeof(float));
+	
+	int i;
+	
+	for(i=0;i<argp->Mat_size;i++)
+		result.prod.prod_val[i]=argp->Es*argp->Mat.Mat_val[i];
 
 	return &result;
 }
