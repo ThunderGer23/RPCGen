@@ -23,27 +23,21 @@ ope_prog_1(char *host)
 #endif	/* DEBUG */
 
 int flag=1;
-	int choice;
 	int n;
 	float r;
 
-	do
-	{
-		printf("==========================\n");
-		printf("=====Vector * Escalar=====\n");
-		printf("==========================\n");
-		printf("1. r*X[]\n");
-		printf("2. Quit\n");
-		printf("==========================\n");
-		printf("Choice: ");
-		scanf("%d", &choice);
-		printf("==========================\n");
+	do{
+		char choice;			
+		printf("Presiona 1 para multiplicar\n");		
+		printf("cualquier otra cosa para salir\n");
+		printf("Valor: ");
+		scanf("%c", &choice);		
 		
-	if(choice==1){
+	if(choice=='1'){
 			///////////////////////////////////////////////////////
 			//r*X[]
 			///////////////////////////////////////////////////////
-			printf("Give size of X[]: ");
+			printf("Ingresa el valor de X[]: ");
 			scanf("%d", &n);
 		
 			printf("\n");
@@ -58,7 +52,7 @@ int flag=1;
 				scanf("%d", &product_1_arg.Mat.Mat_val[i]);	
 			}
 			
-			printf("Give floating number r: ");
+			printf("Ingresa el escalar: ");
 			scanf("%f", &r);
 			
 			product_1_arg.Es=r;
@@ -75,10 +69,9 @@ int flag=1;
 				printf("\n");
 		}
 		
-	}else if(choice == 2){
-		flag=0;
 	}else{
-		printf("Invalid Choice. Try Again.\n\n");
+		flag=0;
+		printf("Adios\n\n");
 	}
 }while(flag);
 
